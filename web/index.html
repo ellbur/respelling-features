@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heelee ASCII Font Test</title>
+<style>
+  @font-face {
+    font-family: "Heelee ASCII";
+    src: url("heelee-ascii.woff") format("woff");
+  }
+  :root {
+    --bg: #fbfaf7;
+    --fg: #1d1d1b;
+    --muted: #6b6a65;
+    --border: #d8d6cf;
+    --field: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1b1b1a;
+      --fg: #ecebe6;
+      --muted: #9a9890;
+      --border: #3a3936;
+      --field: #232322;
+    }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: system-ui, sans-serif;
+  }
+  main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem;
+  }
+  h1 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+  p {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    height: 60vh;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--field);
+    color: var(--fg);
+    font-family: "Heelee ASCII", sans-serif;
+    font-feature-settings: "rlig" 1;
+    font-size: var(--size, 28px);
+    line-height: 1.5;
+    resize: vertical;
+  }
+  textarea.plain {
+    font-family: serif;
+    font-feature-settings: normal;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Heelee ASCII font test</h1>
+  <p>Type ordinary English; the font's substitutions respell it phonemically, in ordinary letters, as you type.</p>
+  <div class="controls">
+    <label>Spelling
+      <select id="mode">
+        <option value="">ASCII respelling</option>
+        <option value="plain">Original</option>
+      </select>
+    </label>
+    <label>Size <input type="range" id="size" min="14" max="64" value="28"></label>
+  </div>
+  <textarea id="text" spellcheck="false">When I got home last night, my brother told me that he couldn't find the keys to his car.
+We looked everywhere for them: under the couch, behind the books, and even in the kitchen.
+It was the best of times, it was the worst of times, it was the age of wisdom.
+The quick brown fox jumps over the lazy dog, and nobody seems to notice.
+She thought about the question for a long time before answering, because it mattered.
+People often say that history repeats itself, but I think it mostly rhymes.</textarea>
+</main>
+<script>
+  const text = document.getElementById("text");
+  document.getElementById("mode").addEventListener("change", e => {
+    text.className = e.target.value;
+  });
+  document.getElementById("size").addEventListener("input", e => {
+    text.style.setProperty("--size", e.target.value + "px");
+  });
+</script>
+</body>
+</html>

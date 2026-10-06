@@ -1,0 +1,17 @@
+
+file = { SOI ~ (WHITESPACE*) ~ (feature*) ~ (WHITESPACE*) ~ EOI }
+feature = { (WHITESPACE*) ~ "feature" ~ name ~ "{" ~ feature_body ~ "}" ~ name ~ ";" ~ (WHITESPACE*) }
+feature_body = { (WHITESPACE*) ~ (lookup*) ~ (WHITESPACE*) }
+lookup = { "lookup" ~ name ~ "{" ~ ((sub|ignore)*) ~ "}" ~ name ~ ";" }
+sub = { "sub" ~ (WHITESPACE*) ~ lhs ~ rhs ~ (WHITESPACE*) ~ ";" }
+ignore = { "ignore" ~ "sub" ~ (WHITESPACE*) ~ (lhs_element+) ~ (WHITESPACE*) ~ ";" }
+lhs = { "by" | (lhs_element ~ lhs) }
+rhs = { rhs_element+ }
+lhs_element = { name ~ (prime?) }
+prime = { "'" }
+rhs_element = { name }
+
+name = @{ "@"? ~ (LETTER | NUMBER)+ }
+
+WHITESPACE = _{ " " | "\t" | "\n" | "\r" }
+

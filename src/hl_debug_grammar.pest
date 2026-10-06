@@ -1,0 +1,75 @@
+
+hl_sub = { lhs ~ "→" ~ rhs }
+
+lhs = { at_start? ~ lhs_body ~ at_end? }
+
+at_start = { "^" }
+at_end = { "$" }
+
+rhs = { letter+ }
+
+lhs_body = { lhs_start ~ lhs_middle ~ lhs_end }
+
+lhs_start = { letter* }
+lhs_middle = { "[" ~ letter+ ~ "]" }
+lhs_end = { letter* }
+
+letter = {
+  a | b | c | d | e | f | g | h | i | j |
+  k | l | m | n | o | p | q | r | s | t |
+  u | v | w | x | y | z | ch | th | sh | jh |
+  eh | ah | oi | ow | aw | eu | uh | ee | ei | yu | dh |
+  ng | ae | ih | schwa | hyphen | er | apos
+}
+
+a = {"a"}
+b = {"b"}
+c = {"c"}
+d = {"d"}
+e = {"e"}
+f = {"f"}
+g = {"g"}
+h = {"h"}
+i = {"i"}
+j = {"j"}
+k = {"k"}
+l = {"l"}
+m = {"m"}
+n = {"n"}
+o = {"o"}
+p = {"p"}
+q = {"q"}
+r = {"r"}
+s = {"s"}
+t = {"t"}
+u = {"u"}
+v = {"v"}
+w = {"w"}
+x = {"x"}
+y = {"y"}
+z = {"z"}
+ch = {"ʧ"}
+th = {"θ"}
+sh = {"ʃ"}
+jh = {"ʒ"}
+eh = {"ε"}
+ah = {"ɑ"}
+oi = {"ꭢ"}
+ow = {"ʊ"}
+aw = {"ɔ"}
+eu = {"ɜ"}
+uh = {"ʌ"}
+ee = {"ɩ"}
+ei = {"ϵ"}
+yu = {"ū"}
+dh = {"ϑ"}
+ng = {"ŋ"}
+ae = {"æ"}
+ih = {"ɪ"}
+schwa = {"ə"}
+hyphen = {"-"}
+er = {"ʳ"}
+apos = {"'"}
+
+WHITESPACE = _{ " " | "\t" | "\n" | "\r" }
+

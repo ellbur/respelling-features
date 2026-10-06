@@ -1,0 +1,16 @@
+target
+working/first-pass-*.txt
+working/babysit.log
+*.otf
+
+# Downloaded by scripts/fetch_data.sh and built by scripts/make_data.sh.
+res/cmudict.dict
+res/readlex.json
+res/topwords.txt
+res/contraction-frequencies.txt
+res/topwords-pronunciation.txt
+res/topwords-pronunciation-2.txt
+res/frequency-table.json
+res/readlex-entries-top5000.json
+res/readlex-entries-top-american5000.json
+res/pronunciations-phonemic-ipa.txt

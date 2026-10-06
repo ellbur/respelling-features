@@ -1,0 +1,26 @@
+# How each sound glyph is spelled in the ASCII font (makefont --respell):
+# a glyph as the rules write it, then its ASCII spelling. Glyphs not listed
+# (consonant letters, and j, y, ...) are left as they are.
+ʌ uh
+ə uh
+ɪ i
+ε e
+æ a
+ɑ ah
+ɔ aw
+ϵ ay
+ɩ ee
+i ai
+o oh
+u oo
+ū yoo
+ɜ uu
+ʊ ow
+ꭢ oy
+ʳ er
+ʧ ch
+ʃ sh
+ʒ zh
+θ th
+ϑ dh
+ŋ ng
